@@ -13,7 +13,7 @@ Seguir o _naming convention_ definido nos guidelines elaborados pela própria Mi
 | Constante             | `PascalCase`                             |
 | Enum                  | `PascalCase` no singular                 |
 
-Outras regras:
+## Outras regras:
 
 - O código deve ser escrito em inglês;
 - Deve-se evitar abreviações;
@@ -25,7 +25,7 @@ Outras regras:
   5. Métodos: `public`, `protected` e `private` (necessáriamente nessa ordem).
 - Respeitar a quebra de linhas (seguindo o exemplo).
 
-Exemplo de código:
+## Exemplo de código:
 
 ```C#
 public class PaymentProcessing
