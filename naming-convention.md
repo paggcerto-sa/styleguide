@@ -1,6 +1,6 @@
 # Convenção de nomes
 
-Seguir o _naming convention_ definidos nos guidelines elaborados pela própria Microsoft.
+Seguir o _naming convention_ definido nos guidelines elaborados pela própria Microsoft.
 
 | Convenção             | Notação                                  |
 |:----------------------|:-----------------------------------------|
@@ -46,7 +46,7 @@ public class PaymentProcessing
         // Do something
     }
 
-    protected decimal AquirerProcessing()
+    protected void AquirerProcessing()
     {
         // Do something
     }
