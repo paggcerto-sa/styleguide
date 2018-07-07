@@ -6,7 +6,7 @@ Seguir o _naming convention_ definido nos guidelines elaborados pela própria Mi
 |:----------------------|:-----------------------------------------|
 | Classe                | `PascalCase`                             |
 | Atributo              | `camelCase` iniciando com underline `_`  |
-| Propriedade           | `camelCase`                              |
+| Propriedade           | `PascalCase`                              |
 | Método                | `PascalCase`                             |
 | Parâmentro de método  | `camelCase`                              |
 | Variável local        | `camelCase`                              |
