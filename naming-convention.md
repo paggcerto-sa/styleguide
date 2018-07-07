@@ -41,7 +41,7 @@ public class PaymentProcessing
 
     public bool CardNotProcessed { get; set; }
 
-    private decimal CalculateFees()
+    public decimal CalculateFees()
     {
         // Do something
     }
@@ -51,7 +51,7 @@ public class PaymentProcessing
         // Do something
     }
 
-    public void Process(Payment payment)
+    private void Process(Payment payment)
     {
         // Do something
     }
