@@ -32,7 +32,7 @@ public class PaymentProcessing
 {
     public const MaximumInstallment = 12;
 
-    private ApiDbContext _dbContext { get; set; }
+    private ApiDbContext _dbContext;
 
     public PaymentProcessing(ApiDbContext dbContext)
     {
