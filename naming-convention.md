@@ -58,3 +58,8 @@ public class PaymentProcessing
     }
 }
 ```
+
+## Referências
+
+https://docs.microsoft.com/en-us/dotnet/standard/design-guidelines/general-naming-conventions
+https://docs.microsoft.com/en-us/dotnet/standard/design-guidelines/index
