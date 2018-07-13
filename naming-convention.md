@@ -1,6 +1,6 @@
 # Convenção de nomes
 
-Seguir o _naming convention_ definido nos guidelines elaborados pela própria Microsoft.
+Seguir o _naming convention_ definido nos [guidelines](https://docs.microsoft.com/en-us/dotnet/standard/design-guidelines/index) elaborados pela própria Microsoft.
 
 | Convenção             | Notação                                  |
 |:----------------------|:-----------------------------------------|
@@ -58,7 +58,3 @@ public class PaymentProcessing
     }
 }
 ```
-
-## Referência
-
-https://docs.microsoft.com/en-us/dotnet/standard/design-guidelines/index
