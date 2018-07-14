@@ -1,4 +1,4 @@
-# Convenção de nomes
+# Convenções de nomenclatura
 
 Seguir o _naming convention_ definido nos [guidelines](https://docs.microsoft.com/en-us/dotnet/standard/design-guidelines/index) elaborados pela própria Microsoft.
 
