@@ -9,6 +9,14 @@ Algumas regras para definição das rotas devem ser seguidas:
 - As rotas devem ser declaradas em letra minúscula;
 - Para rotas com nomes compostos, cada palavra deve ser separada por hífen.
 
+## Verbos HTTP das _actions_
+
+As APIs devem utilizar um verbo HTTP de acordo com a sua finalidade:
+- GET: Consultas (resultado em lista ou individual) e download de arquivos (PDF, por exemplo);
+- POST: Cadastro de registros;
+- PUT: Atualização de registros;
+- DELETE: Exlusão de registros.
+
 ## Exemplo de código
 
 ```C#
@@ -78,7 +86,7 @@ public class PaymentsController : Controller
         return new PaymentJson(cardPaymentProcessing.Payment);
     }
     
-    [HttpGet, Route("pay-with-bank-slip")]
+    [HttpPost, Route("pay-with-bank-slip")]
     public async Task<IActionResult> PayWithBankSlip([FromBody] BankSlipPaymentModel model)
     {
         var bankSlipProcessing = new BankSlipProcessing(_dbContext, _accountApi);
