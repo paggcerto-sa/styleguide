@@ -22,7 +22,7 @@ Seguir o _naming convention_ definido nos [guidelines](https://docs.microsoft.co
   2. Atributos;
   3. Construtores;
   4. Propriedades;
-  5. Métodos: `public`, `protected` e `private` (necessáriamente nessa ordem);
+  5. Métodos: `public`, `protected` e `private` (necessariamente nessa ordem);
 - As declarações devem ser o mais semântico possível;
 - Respeitar a quebra de linhas (seguindo o exemplo).
 
