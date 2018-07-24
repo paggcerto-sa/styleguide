@@ -12,10 +12,10 @@ Algumas regras para definição das rotas devem ser seguidas:
 ## Verbo HTTP das _actions_
 
 Cada _action_ deve ser referenciada por um verbo HTTP de acordo com a sua finalidade:
-- GET: Consultas (resultado em lista ou individual) e download de arquivos (PDF, por exemplo);
-- POST: Cadastro de registros;
-- PUT: Atualização de registros;
-- DELETE: Exclusão de registros.
+- `GET`: Consultas (resultado em lista ou individual) e download de arquivos (PDF, por exemplo);
+- `POST`: Cadastro de registros;
+- `PUT`: Atualização de registros;
+- `DELETE`: Exclusão de registros.
 
 ## Exemplo de código
 
