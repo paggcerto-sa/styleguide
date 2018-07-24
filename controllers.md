@@ -9,7 +9,7 @@ Algumas regras para definição das rotas devem ser seguidas:
 - As rotas devem ser declaradas em letra minúscula;
 - Para rotas com nomes compostos, cada palavra deve ser separada por hífen.
 
-## Verbos HTTP das _actions_
+## Verbo HTTP das _actions_
 
 As APIs devem utilizar um verbo HTTP de acordo com a sua finalidade:
 - GET: Consultas (resultado em lista ou individual) e download de arquivos (PDF, por exemplo);
