@@ -5,7 +5,7 @@ Guideline para o desenvolvimento das nossas RESTful APIs.
 1. [Convenções de nomenclatura](https://github.com/paggcerto-sa/styleguide/blob/master/naming-convention.md)
 2. [Estrutura de diretórios do projeto](https://github.com/paggcerto-sa/styleguide/blob/master/project-structure.md)
 3. Padrão de código da API:  
-  3.1. _[Controllers](https://github.com/paggcerto-sa/styleguide/blob/master/controllers.md)_  
+  3.1. _[Controllers](https://github.com/paggcerto-sa/styleguide/blob/master/api/controllers.md)_  
   3.2. _Extensions_  
   3.3. _Filters_  
   3.4. _Infrastructure_  
