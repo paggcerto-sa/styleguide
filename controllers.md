@@ -72,7 +72,7 @@ public class PaymentsController : Controller
 
         if (!await cardTransactionProcessing.Process(payment))
         {
-            return new CardTransactionProcessingErrorJson(cardTransactionProcessing);
+            return new CardTransactionErrorJson(cardTransactionProcessing);
         }
 
         return new PaymentJson(cardPaymentProcessing.Payment);
@@ -86,7 +86,7 @@ public class PaymentsController : Controller
 
         if (!await bankSlipProcessing.Process(payment))
         {
-            return new BankSlipProcessingErrorJson(bankSlipProcessing);
+            return new BankSlipErrorJson(bankSlipProcessing);
         }
 
         return new PaymentListJson(bankSlipProcessing.Payments);
