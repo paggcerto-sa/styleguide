@@ -37,7 +37,7 @@ Diretório `api`:
 - Extensions: [Extension methods](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/extension-methods) utilizados por toda a API.
 - Filters: [MVC Core filters](https://docs.microsoft.com/en-us/aspnet/core/mvc/controllers/filters?view=aspnetcore-2.1) globais ou utilizados indivualmente por cada _action_ dos _controllers_.
 - Infrastructure: Mantém as classes que a infraestrutura da API ex.: segurança, log de erros, etc.
-- Migrations: Código gerado automaticamente pelo [Entity framework](https://docs.microsoft.com/en-us/ef/core/) para controle de versão do banco de dados.
+- Migrations: Código gerado automaticamente pelo [Entity Framework](https://docs.microsoft.com/en-us/ef/core/) para controle de versão do banco de dados.
 - Model: Camada `Model` do MVC, responsável pela lógica de negócio e persistência.
   - EntityModel: Classes de mapeamento e persistência para o banco de dados da API.
   - IntegrationModel: Classes de comunicação e persistência através de integração com outras APIs.
@@ -47,10 +47,10 @@ Diretório `api`:
   - ViewModel: Classes que representam o JSON da requisição e responsáveis pela validação de dados.
 
 Diretório `tests`:
-- Factories: _Pendente_.
-  - EntityModel: _Pendente_.
-  - ViewModel: _Pendente_.
-- Fakes: _Pendente_.
-- Functional: _Pendente_.
-- Http: _Pendente_.
-- Unit: _Pendente_.
+- Factories: Classes para criação de dados fictícios utilizados nos testes.
+  - EntityModel: Criação de _entity models_.
+  - ViewModel: Criação de _view models_.
+- Fakes: Classes que simulam a persistência em banco de dados ou APIs.
+- Functional: Classes que testam a funcionalidade desde a requisição até a persistência.
+- Http: Arquivos de requisições reais utilizadas para testes.
+- Unit: Classes que testam unidades do código (um método específico, por exemplo).
