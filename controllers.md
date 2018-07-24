@@ -15,7 +15,7 @@ As APIs devem utilizar um verbo HTTP de acordo com a sua finalidade:
 - GET: Consultas (resultado em lista ou individual) e download de arquivos (PDF, por exemplo);
 - POST: Cadastro de registros;
 - PUT: Atualização de registros;
-- DELETE: Exlusão de registros.
+- DELETE: Exclusão de registros.
 
 ## Exemplo de código
 
