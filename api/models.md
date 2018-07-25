@@ -228,7 +228,7 @@ public class PaymentProcessing
     public bool Reproved { get; private set; }
     public bool CardNotSupported { get; private set; }
     
-    public async Task Process(Payment payment)
+    public async Task<bool> Process(Payment payment)
     {
         Payment = payment;
         
@@ -242,6 +242,8 @@ public class PaymentProcessing
         
         _dbContext.Payments.Add(Payment);
         await _dbContext.SaveChangesAsync();
+
+        return true;
     }
 }
 ```
