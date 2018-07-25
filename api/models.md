@@ -136,7 +136,73 @@ public class AccountApiOptions
 
 ## _Result model_
 
-_Pendente._
+_Result models_ são classes de resposta da API e representam a serialização para JSON, PDF, etc. Por exemplo:
+
+- `PaymentListJson.cs`: Representa uma coleção em JSON:
+  ```json
+  {
+    "payments": [],
+    "count": 0
+  }
+  ```
+
+- `PaymentJson.cs`: Representa um objeto `Payment` em JSON:
+  ```json
+  {
+    "id": 1,
+    "paitAt": "2018-04-10T14:14:20.1394168",
+    "canceledAt": null,
+    "amount": 90.5
+  }
+  ```
+  
+### Exemplo de código
+
+```C#
+public class PaymentListJson: IActionResult
+{
+    public PaymentListJson() { }
+
+    public PaymentListJson(IEnumerable<Payment> payments, long count)
+    {
+        Payments = payments.Select(payment => new PaymentJson(payment)).ToList();
+        Count = count;
+    }
+    
+    public IEnumerable<PaymentJson> Payments { get; set; }
+    public long Count { get; set; }
+
+    public Task ExecuteResultAsync(ActionContext context)
+    {
+        return new JsonResult(this).ExecuteResultAsync(context);
+    }
+}
+```
+
+```C#
+public class PaymentJson: IActionResult
+{
+    public PaymentJson() { }
+
+    public PaymentJson(Payment payment)
+    {
+        Id = payment.Id;
+        CreatedAt = payment.CreatedAt;
+        CanceledAt = payment.CanceledAt;
+        Amount = payment.Amount;
+    }
+
+    public string Id { get; set; }
+    public DateTime CreatedAt { get; set; }
+    public DateTime? CanceledAt { get; set; }
+    public decimal Amount { get; set; }
+
+    public Task ExecuteResultAsync(ActionContext context)
+    {
+        return new JsonResult(this).ExecuteResultAsync(context);
+    }
+}
+```
 
 ## _Service model_
 
