@@ -282,16 +282,51 @@ public class JsonRequired : RequiredAttribute
 ```
 
 ```C#
-// JsonRange.cs
-public class JsonRange : RangeAttribute
+// JsonCurrency.cs
+public class JsonCurrency : RangeAttribute
 {
-    public JsonRange(decimal minimum, decimal maximum) : base(minimum, maximum)
+    private const decimal Minimum = 0;
+    private const decimal Maximum = 999999.99;
+
+    public JsonCurrency() : base(Minimum, Maximum)
     {
-        ErrorMessage = "{0}: Between {1} and {2}.";
+        ErrorMessage = $"{0}: Between {Minimum} and {Maximum}.";
     }
 }
 ```
 
 ## _View models_
 
-_Pendente._
+_View models_ são classes que representam o JSON de requisição enviados para a API. Fazem uso dos _validations_ e são responsáveis por converter os parâmetros de entrada para a entidade de negócio. Por exemplo, o _view model_ pode ser construído a partir desse JSON:
+
+`POST /api/v2/pay`
+
+```JSON
+{
+  "amount": 90.5,
+  "customer": {
+    "name": "Maria BLA",
+    "taxDocument": "123.123.123-87"
+  }
+}
+```
+
+### Código de exemplo
+
+```C#
+public class PaymentModel
+{
+    [Display(Name = "amount"), JsonRequired, JsonCurrency]
+    public decimal? Amount { get; set; }
+    
+    [Display(Name = "customer"), JsonRequired]
+    public ICollection<CustomerModel> Customer { get; set; }
+    
+    public Payment Map() => new Payment
+    {
+        Amount = Amount.Value,
+        Customer = Customer.Map(),
+        CreatedAt = DateTime.Now
+    };
+}
+```
