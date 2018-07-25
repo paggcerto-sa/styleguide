@@ -206,7 +206,45 @@ public class PaymentJson: IActionResult
 
 ## _Service model_
 
-_Pendente._
+_Service models_ são classes que abstraem a execução do processo de negócio e validação de suas regras (não inclui validação de dados). Por exemplo:
+
+- `PaymentProcessing`: Classe responsável pelo processamento de um pagamento.
+
+### Exemplo de código
+
+```C#
+public class PaymentProcessing
+{
+    private ApiDbContext _dbContext;
+    private IAcquirerApi _acquirerApi;
+    
+    public CardPaymentProcessing(ApiDbContext dbContext, IAcquirerApi acquirerApi)
+    {
+        _dbContext = dbContext;
+        _acquirerApi = _acquirerApi;
+    }
+    
+    public Payment Payment { get; private set; }
+    public bool Reproved { get; private set; }
+    public bool CardNotSupported { get; private set; }
+    
+    public async Task Process(Payment payment)
+    {
+        Payment = payment;
+        
+        await _acquirerApi.Process(Payment);
+        
+        CardNotSupported = Payment.CardTransaction == null;
+        if (CardNotSupported) return false;
+        
+        Reproved = Payment.CardTransaction.ReprovedAt != null;
+        if (Reproved) return false;
+        
+        _dbContext.Payments.Add(Payment);
+        await _dbContext.SaveChangesAsync();
+    }
+}
+```
 
 ## _Validations_
 
