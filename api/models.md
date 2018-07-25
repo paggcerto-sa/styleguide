@@ -5,7 +5,7 @@ arquivo ou através da comunicação com outras APIs.
 
 ## _Entity model_
 
-São classes que representam entidades persistidas e seu mapeamento para o banco de dados. Por exemplo:
+_Entity models_ são classes que representam entidades persistidas e seu mapeamento para o banco de dados. Por exemplo:
 
 - `Payment.cs`: Classe representativa de uma entidade do negócio. O nome deve ser semanticamente relacionado ao termo de negócio utilizado no mundo real.
 - `PaymentMap.cs`: Classe que configura o mapeamento da tabela do banco de dados para uma instância da entidade do negócio.
@@ -84,7 +84,55 @@ public static class PaymentQuery
 
 ## _Integration model_
 
-_Pendente._
+_Integration models_ são classes que realizam a comunicação com outras APIs (RESTful ou SOAP). Por exemplo:
+
+- `IAccountApi.cs`: Interface da API utilizada para implementação real e _fake_ para testes;
+- `AccountApi.cs`: Responsável pela comunicação de fato com a API de destino;
+- `AccountApiOptions.cs`: Opções de configuração da API obtidas a partir do `appsettings.json`.
+
+### Exemplo de código
+
+```C#
+// IAccountApi.cs
+public interface IAccountApi
+{
+    Task<WhoAmI> WhoAmI(string token);
+}
+```
+
+```C#
+// AccountApi.cs
+public class AccountApi : IAccountApi
+{
+    private AccountApiOptions _options;
+    private HttpClient _httpClient;
+
+    public AccountApi(IOptions<AccountApiOptions> options)
+    {
+        _options = options.Value;
+
+        _httpClient = new HttpClient();
+        _httpClient.DefaultRequestHeaders.Accept.Clear();
+        _httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+    }
+    
+    public async Task<WhoAmI> WhoAmI(string token)
+    {
+        _httpClient.DefaultRequestHeaders.Add("Authorization", token);
+
+        var response = await _httpClient.PostAsJsonAsync(_options.WhoAmIUrl);
+        return response.IsSuccessStatusCode ? await response.Content.ReadAsJsonAsync<WhoAmI>() : null;
+    }
+}
+```
+
+```C#
+// AccountApiOptions.cs
+public class AccountApiOptions
+{
+    public string WhoAmIUrl { get; set; }
+}
+```
 
 ## _Result model_
 
