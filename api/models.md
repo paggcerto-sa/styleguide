@@ -39,9 +39,9 @@ public static class PaymentMap
         entity.HasKey(p => p.Id);
         
         entity.Property(p => p.Id).ValueGeneratedOnAdd();
-        entity.Property(p => p.PaitAt).IsRequired();
-        entity.Property(p => p.CanceledAt);
-        entity.Property(p => p.Amount).HasColumnType("decimal(8,2)");
+        entity.Property(p => p.PaitAt).HasColumnName("DataPagamento").IsRequired();
+        entity.Property(p => p.CanceledAt).HasColumnName("DataCancelamento");
+        entity.Property(p => p.Amount).HasColumnName("Total").HasColumnType("decimal(8,2)");
         
         entity.HasOne(p => p.BankSlip)
             .WithOne(p => p.Payment)
