@@ -221,7 +221,7 @@ public class PaymentProcessing
     public CardPaymentProcessing(ApiDbContext dbContext, IAcquirerApi acquirerApi)
     {
         _dbContext = dbContext;
-        _acquirerApi = _acquirerApi;
+        _acquirerApi = acquirerApi;
     }
     
     public Payment Payment { get; private set; }
