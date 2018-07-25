@@ -139,7 +139,7 @@ public class AccountApiOptions
 _Result models_ são classes de resposta da API e representam a serialização para JSON, PDF, etc. Por exemplo:
 
 - `PaymentListJson.cs`: Representa uma coleção em JSON:
-  ```json
+  ```JSON
   {
     "payments": [],
     "count": 0
@@ -147,7 +147,7 @@ _Result models_ são classes de resposta da API e representam a serialização p
   ```
 
 - `PaymentJson.cs`: Representa um objeto `Payment` em JSON:
-  ```json
+  ```JSON
   {
     "id": 1,
     "paitAt": "2018-04-10T14:14:20.1394168",
@@ -250,7 +250,47 @@ public class PaymentProcessing
 
 ## _Validations_
 
-_Pendente._
+_Validations_ são classes responsáveis pela validação de dados (não de regra de negócio). Essas validações são realizadas antes da execução da _action_. A falha dessas validações devem resultar no _status code_ 400 (_Bad request_) e devem seguir essas convenções:
+
+- Definição da mensagem de erro:  
+`propertyName: Error message.`
+
+- Definição do objeto JSON:
+```JSON
+{
+  "errors": [
+    "amount: Greater than 0.",
+    "customer.taxDocument: Invalid.",
+    "order: Required."
+  ]
+}
+```
+
+**OBS.:** Esses erros não são direcionados ao usuário final, são direcionados ao desenvolvedor que consome a API. Os aplicativos que utilizam a API devem garantir que os dados estejam íntegros antes de submeter o formulário.
+
+### Exemplo de código
+
+```C#
+// JsonRequired.cs
+public class JsonRequired : RequiredAttribute
+{
+    public JsonRequired()
+    {
+        ErrorMessage = "{0}: Required.";
+    }
+}
+```
+
+```C#
+// JsonRange.cs
+public class JsonRange : RangeAttribute
+{
+    public JsonRange(decimal minimum, decimal maximum) : base(minimum, maximum)
+    {
+        ErrorMessage = "{0}: Between {1} and {2}.";
+    }
+}
+```
 
 ## _View models_
 
