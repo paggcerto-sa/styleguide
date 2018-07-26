@@ -7,7 +7,7 @@ Guideline para o desenvolvimento das nossas RESTful APIs.
 3. Padrão de código da API:  
   3.1. [Controllers](https://github.com/paggcerto-sa/styleguide/blob/master/api/controllers.md)  
   3.2. [Extensions](https://github.com/paggcerto-sa/styleguide/blob/master/api/extensions.md)  
-  3.3. _Filters_  
+  3.3. [Filters](https://github.com/paggcerto-sa/styleguide/blob/master/api/filter.md)  
   3.4. _Infrastructure_  
   3.5. [Models](https://github.com/paggcerto-sa/styleguide/blob/master/api/models.md)  
 4. Padrão de código dos testes:  
