@@ -3,7 +3,7 @@
 _[Extensions methods](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/extension-methods)_
 são criados para possibilitar o reaproveitamento de uma mesma lógica e, dependendo do caso, podem ser utilizados por todo o código da API.
 
-### Exemplo de código.
+## Exemplo de código.
 
 ```C#
 public static class StringExtensions
