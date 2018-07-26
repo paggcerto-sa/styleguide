@@ -24,37 +24,48 @@ Seguir o _naming convention_ definido nos [guidelines](https://docs.microsoft.co
   4. Propriedades;
   5. Métodos: `public`, `protected` e `private` (necessariamente nessa ordem);
 - As declarações devem ser o mais semântico possível;
-- Respeitar a quebra de linhas (seguindo o exemplo).
+- Respeitar a quebra de linhas (seguindo o exemplo);
+- Os _usings_ devem ser ordenados alfabeticamente.
+
+### Por que?
+
+Adotar um padrão de organização e estrutura facilita a navegação do código e melhora a manutenibilidade.
 
 ## Exemplo de código:
 
 ```C#
-public class PaymentProcessing
+using System.IO;
+using System.Threading.Tasks;
+
+namespace api.Models.ServiceModel
 {
-    public const MaximumInstallment = 12;
-
-    private ApiDbContext _dbContext;
-
-    public PaymentProcessing(ApiDbContext dbContext)
+    public class PaymentProcessing
     {
-        _dbContext = dbContext;
-    }
+        public const MaximumInstallment = 12;
 
-    public bool CardNotProcessed { get; set; }
+        private ApiDbContext _dbContext;
 
-    public void Process(Payment payment)
-    {
-        // Do something
-    }
+        public PaymentProcessing(ApiDbContext dbContext)
+        {
+            _dbContext = dbContext;
+        }
 
-    protected void AcquirerProcessing()
-    {
-        // Do something
-    }
+        public bool CardNotProcessed { get; set; }
 
-    private decimal CalculateFees()
-    {
-        // Do something
+        public void Process(Payment payment)
+        {
+            // Do something
+        }
+
+        protected void AcquirerProcessing()
+        {
+            // Do something
+        }
+
+        private decimal CalculateFees()
+        {
+            // Do something
+        }
     }
 }
 ```
