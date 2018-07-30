@@ -28,7 +28,7 @@ Seguir o _naming convention_ definido nos [guidelines](https://docs.microsoft.co
 - Respeitar a quebra de linhas (seguindo o exemplo);
 - Os _usings_ devem ser ordenados alfabeticamente;
 - Refatorações podem ser realizadas sempre que necessário para manter a coerência e a semântica do código,
-bem como sua fidelidade ao processo do necógio.
+bem como sua fidelidade ao processo do negócio.
 
 ### Por que?
 
