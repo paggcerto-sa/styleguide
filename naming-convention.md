@@ -16,6 +16,7 @@ Seguir o _naming convention_ definido nos [guidelines](https://docs.microsoft.co
 ## Outras regras:
 
 - O código deve ser escrito em inglês;
+- As declarações devem estar semanticamente relacionadas aos termos utilizados no mundo real;
 - Deve-se evitar abreviações;
 - A declaração dos elementos da classe (quando houver) deve respeitar a seguinte sequência:
   1. Constantes;
@@ -23,7 +24,6 @@ Seguir o _naming convention_ definido nos [guidelines](https://docs.microsoft.co
   3. Construtores;
   4. Propriedades;
   5. Métodos: `public`, `protected` e `private` (necessariamente nessa ordem);
-- As declarações devem ser o mais semântico possível;
 - Respeitar a quebra de linhas (seguindo o exemplo);
 - Os _usings_ devem ser ordenados alfabeticamente.
 
