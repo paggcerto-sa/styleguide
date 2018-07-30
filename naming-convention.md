@@ -18,6 +18,7 @@ Seguir o _naming convention_ definido nos [guidelines](https://docs.microsoft.co
 - O código deve ser escrito em inglês;
 - As declarações devem estar semanticamente relacionadas aos termos utilizados no mundo real;
 - Deve-se evitar abreviações;
+- As classes declaradas devem possuir uma única responsabilidade;
 - A declaração dos elementos da classe (quando houver) deve respeitar a seguinte sequência:
   1. Constantes;
   2. Atributos;
