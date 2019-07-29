@@ -10,6 +10,7 @@ Guideline para o desenvolvimento das nossas RESTful APIs.
   3.3. [Filters](https://github.com/paggcerto-sa/styleguide/blob/master/api/filter.md)  
   3.4. _Infrastructure_  
   3.5. [Models](https://github.com/paggcerto-sa/styleguide/blob/master/api/models.md)  
+  3.6. _Validations_ 
 4. Padrão de código dos testes:  
   4.1. _Factories_  
   4.2. _Fakes_  
