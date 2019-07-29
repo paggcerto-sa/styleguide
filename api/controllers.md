@@ -23,10 +23,10 @@ Cada _action_ deve ser referenciada por um verbo HTTP de acordo com a sua finali
 [Route("api/v2/payments")]
 public class PaymentsController : Controller
 {
-    private ApiDbContext _dbContext;
-    private AccountApi _accountApi;
+    private readonly ApiDbContext _dbContext;
+    private readonly AccountApi _accountApi;
   
-    public PaymentsController(ApiDbContext dbContext, AccountApi _accountApi)
+    public PaymentsController(ApiDbContext dbContext, AccountApi accountApi)
     {
         _dbContext = dbContext;
         _accountApi = accountApi;
